@@ -1,0 +1,24 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID Producto</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Proveedor</th>
+            <th>Dirección del Proveedor</th>
+            <th>Acciones</th> <!-- nueva columna -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="prod : ${productos}">
+            <td th:text="${prod.idprod}">ID</td>
+            <td th:text="${prod.nombre}">Nombre</td>
+            <td th:text="${prod.stock}">Stock</td>
+            <td th:text="${prod.proveedor.razon_social}">Proveedor</td>
+            <td th:text="${prod.proveedor.direccion}">Dirección</td>
+            <td>
+                <a th:href="@{/editarProducto(id=${prod.idprod})}">Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
